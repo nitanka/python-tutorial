@@ -12,7 +12,7 @@ index = 0
 
 if len(findString.split()) > 1:
     print("Please enter only one word!!!")
-
+    exit()
 for eachWord in inputString.split():
     print("===== {} =====".format(eachWord))
     if findString == eachWord:
