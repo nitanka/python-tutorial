@@ -1,6 +1,9 @@
 #!/usr/bin/env python3 
 
 # python script to find the index of a word in a sentence
+# NOTE: This script will return wrong index number when the number of spaces between the words
+#       are more than 1.
+
 
 from sys import exit
 
