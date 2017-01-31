@@ -8,6 +8,8 @@
 #	division(num1, num2) : Division of num1 by num2 if num2 > 0
 #
 
+from sys import exit
+
 
 def addition(num1, num2):
     # return num1 + num2
@@ -30,10 +32,21 @@ def division (num1, num2):
         return 0
 
 
-num1 = int(input("Enter the first number :  "))
-num2 = int(input("Enter the second number :  "))
+try:
+    num1 = int(input("Enter the first number :  "))
+except ValueError as ve:
+    print ("Enter Integer Values ")
+    exit()
 
-operation = input("Enter the operation to perform (ADD, SUB, MUL, DIV)")
+try:
+    num2 = int(input("Enter the second number :  "))
+except ValueError as ve:
+    print ("Enter Integer Values ")
+    exit()
+
+operation = input("Enter the operation to perform (ADD, SUB, MUL, DIV)  :  ").upper()
+
+print(operation)
 
 if operation not in ["ADD","SUB","MUL","DIV"]:
    print ("Please select one of ADD,SUB,MUL,DIV as operation")
