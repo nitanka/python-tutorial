@@ -2,7 +2,13 @@
 
 # python script to find the consecutive addition of N positive numbers
 
-number = input("Enter the value of N :  ")
+from sys import exit
+
+try:
+    number = int(input("Enter the value of N :  "))
+except ValueError as ve:
+    print(" Enter a positive integer value ")
+    exit()
 
 if number < 0:
     print ("Enter a positive number")
