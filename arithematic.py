@@ -44,9 +44,8 @@ except ValueError as ve:
     print ("Enter Integer Values ")
     exit()
 
-operation = input("Enter the operation to perform (ADD, SUB, MUL, DIV)  :  ").upper()
 
-print(operation)
+operation = input("Enter the operation to perform (ADD, SUB, MUL, DIV)  :  ").upper()
 
 if operation not in ["ADD","SUB","MUL","DIV"]:
    print ("Please select one of ADD,SUB,MUL,DIV as operation")
