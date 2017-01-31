@@ -7,6 +7,11 @@ from sys import exit
 inputString = input("Input the sentence :  ")
 findString = input ("Input the word to find :  ")
 
+if len(inputString) <= 0:
+    print("Please Enter a valid string")
+    exit()
+
+
 if len(findString.split()) != 1:
     print("Please enter a single word!!!")
     exit()
