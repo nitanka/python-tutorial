@@ -11,5 +11,5 @@ response = client.describe_instances(Filters=[{'Name':'tag:' + Tag,'Values':tagV
 
 for reservation in response['Reservations']:
     for instance in reservation['Instances']:
-        print(instance['State']['Name'])
-        print(instance['PublicIpAddress'] + '  :  ' + instance['PrivateIpAddress'])
+       print(instance['State']['Name']) == 'running'
+       print(instance['PublicIpAddress'] + '  :  ' + instance['PrivateIpAddress'])
