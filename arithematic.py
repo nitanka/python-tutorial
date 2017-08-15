@@ -114,6 +114,7 @@ def division (num1, num2):
         return 0
 
 
+#Converting the list to string
 operation = ''.join(value.operation).upper()
 
 if operation == 'ADD':
