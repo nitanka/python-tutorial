@@ -36,18 +36,23 @@ def stringIndex(string,substring):
     
     for char in string:
         stringIndex += 1
+        if substringIndex < len(substring) and char == substring[substringIndex]:
+           substringIndex += 1
+           if substringIndex == len(substring) and (stringIndex - substringIndex == 0) and string[stringIndex] == ' ':
+               print('match')
+               exit()
 
-        #Condition to check end of Index string if a character match is present 
-        if len(substring) > substringIndex and (substring[substringIndex] == char): 
-            substringIndex += 1 #Increasing the index for next substring character
+           if substringIndex == len(substring) and stringIndex < len(string) and stringIndex - substringIndex > 0:
+                if string[stringIndex - substringIndex - 1] == ' ' and string[stringIndex] == ' ':
+                    print('match')
+                    exit()
+
+           if substringIndex == len(substring) and stringIndex == len(string) and string[stringIndex - substringIndex - 1] == ' ':
+                print('match')
+                exit()
         else:
-            substringIndex = 0 #reset substring index to zero for matching with next word in the string
-        #Condition to break the loop in case of a match is found
-        if stringIndex == len(string) or string[stringIndex] == ' ' and substringIndex == len(substring):
-            print('Index of the substring is  {}'.format(stringIndex - substringIndex))
-            exit()
-        if substringIndex == 0 and len(string) - stringIndex < len(substring):
-            print('Word in not present in the string')
-            exit()
+           substringIndex = 0          
+
+
 
 stringIndex(value.string,value.word)
