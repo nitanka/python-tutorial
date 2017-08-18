@@ -1,8 +1,21 @@
 #!/usr/bin/env python3
 
-# python script to find the largest number from a given list of numbers
-
+'''
+    Description: python script to find the largest ineger from a given list of integers
+'''
+from argparse import ArgumentParser
+from argparse import RawTextHelpFormatter
 from sys import exit;
+
+parser = ArgumentParser(description='Finding the largest integer number in a list', prog='largestNumber', usage='%(prog)s [option]')
+parser.add_argument('-l','--list', action='store', type=int, dest='numbers', nargs='+', help='List of integers')
+parser.add_argument('-v','--version', action='version', version='%(prog)s 0.01')
+
+value = parser.parse_args()
+
+if value.numbers is None:
+   parser.print_help()
+   exit()
 
 def largest (insertList):
     large = 0
@@ -10,35 +23,7 @@ def largest (insertList):
         if insertList[large] < ELEMENT:
             large = insertList.index(ELEMENT)
     return large
-    
 
-# Obtaining total number of elements in the list
-try:
-    totalElements = int(input("Enter the total number of elements in the list :  "))
-except ValueError as ve:
-    print("Please enter integers")
-    print("Program Exiting!!!!!!!!!!!")
-    exit()
+LARGEST = largest(value.numbers)
 
-if totalElements <= 0:
-    print("Please enter values greater than 0")
-    print("Program Exiting!!!!!!!!!!!")
-    exit()
-
-inputList = [] #Empty list to hold the integer list given by the user
-count = 0      # counter to use for obtaining list items from the user. counter >= totalElements
-
-while count < totalElements:
-    try:
-        element = int(input("Enter the number {}  ".format(count + 1)))
-    except ValueError as ve:
-        print("Enter integer number")
-        continue 
-        
-    inputList.append(element)
-    count += 1
-
-
-LARGEST = largest(inputList)
-
-print("The largest number in the input list is {}".format(inputList[LARGEST]))
+print("The largest number in the input list is {}".format(value.numbers[LARGEST]))
