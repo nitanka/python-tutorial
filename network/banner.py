@@ -3,7 +3,7 @@ from socket import SOCK_STREAM
 from socket import socket
 from socket import gethostbyname
 from sys import exit
-from connection import *
+from util import *
 
 def grab(host,port):
 
